@@ -1,9 +1,12 @@
-import './App.css';
+import './reset.css'
+import UsersList from './components/UsersList';
 
 function App() {
- 
-
-  return <><h1>Start</h1></>;
+  return (
+    <>
+      <UsersList />
+    </>
+  );
 }
 
 export default App;
