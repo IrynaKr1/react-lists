@@ -76,9 +76,21 @@ class UsersList extends Component {
     this.setState({ users: newUsers });
   };
 
+  deleteUser = (id) => {
+    const { users } = this.state;
+    console.log('User was deleted with id', id);
+    const newUsers = users.filter((u) => u.id !== id);
+    this.setState({ users: newUsers });
+  };
+
   mapUser = (u) => {
     return (
-      <UsersListItem key={u.id} user={u} selectedUser={this.selectedUser} />
+      <UsersListItem
+        key={u.id}
+        user={u}
+        selectedUser={this.selectedUser}
+        deleteUser={this.deleteUser}
+      />
     );
   };
 
