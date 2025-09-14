@@ -2,10 +2,14 @@ import styles from './UsersListItem.module.css';
 
 function UsersListItem(props) {
   const {
-    user: { id, firstName, lastName, age, imgSrc, email, role },
+    selectedUser,
+    user: { id, firstName, lastName, age, imgSrc, email, role, isSelected },
   } = props;
   return (
-    <li className={styles.userCard}>
+    <li
+      className={`${styles.userCard} ${isSelected ? styles.selected : ''}`}
+      onClick={() => selectedUser(id)}
+    >
       <div className={styles.profileImgContainer}>
         <img
           src={imgSrc}

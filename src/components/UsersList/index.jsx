@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import UsersListItem from './UsersListItem';
-import styles from './UserList.module.css'
+import styles from './UserList.module.css';
 
 const UsersData = [
   {
@@ -64,8 +64,22 @@ class UsersList extends Component {
     };
   }
 
+  selectedUser = (id) => {
+    const { users } = this.state;
+    const foundIndex = users.findIndex((u) => u.id === id);
+    console.log('User was selected with id:', id);
+    const newUsers = [...users];
+    newUsers[foundIndex] = {
+      ...newUsers[foundIndex],
+      isSelected: !newUsers[foundIndex].isSelected,
+    };
+    this.setState({ users: newUsers });
+  };
+
   mapUser = (u) => {
-    return <UsersListItem key={u.id} user={u} />;
+    return (
+      <UsersListItem key={u.id} user={u} selectedUser={this.selectedUser} />
+    );
   };
 
   render() {
