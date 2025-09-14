@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import UsersListItem from './UsersListItem';
+import styles from './UserList.module.css'
 
 const UsersData = [
   {
@@ -7,8 +8,8 @@ const UsersData = [
     firstName: 'Anna',
     lastName: 'Krasenko',
     age: 27,
-    imgSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
-    email: 'iryna.kruts@example.com',
+    imgSrc: 'https://randomuser.me/api/portraits/women/10.jpg',
+    email: 'anna.krasenko@example.com',
     isSelected: false,
     role: 'admin',
   },
@@ -69,7 +70,7 @@ class UsersList extends Component {
 
   render() {
     const { users } = this.state;
-    return <ul>{users.map(this.mapUser)}</ul>;
+    return <ul className={styles.userList}>{users.map(this.mapUser)}</ul>;
   }
 }
 
