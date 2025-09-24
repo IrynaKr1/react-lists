@@ -2,7 +2,7 @@ import { Component } from 'react';
 import UsersListItem from './UsersListItem';
 import styles from './UserList.module.css';
 
-const UsersData = [
+const usersData = [
   {
     id: 1,
     firstName: 'Anna',
@@ -60,7 +60,7 @@ class UsersList extends Component {
     super(props);
 
     this.state = {
-      users: UsersData.map((u) => ({ ...u, isSelected: false })),
+      users: usersData.map((u) => ({ ...u, isSelected: false })),
     };
   }
 
